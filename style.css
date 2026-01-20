@@ -1,0 +1,949 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+header nav{
+    position:fixed;
+    width:100%;
+    display: flex;
+     justify-content: space-between;
+     align-items: stretch;
+     padding:0 2em;
+     height:80px;
+     font-size:1.2rem;
+     color:white;
+    border-bottom: 1px solid rgba(216, 208, 208,0.5);
+    background-color: transparent;
+    z-index: 100;
+}
+
+header nav div{
+    display: flex;
+    align-items: center;
+    gap:0.3em;
+}
+
+header nav ul{
+    display: flex;
+    gap:1em;
+    list-style:none;
+    align-items: stretch;
+}
+header nav ul li{
+    display: flex;
+    
+  
+    align-items: center;
+}
+.headercontent{
+    position: relative;
+    overflow: hidden;
+    
+}
+.headercontent img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    transform: scale(1); /* Start at normal size */
+    transition: transform 2.5s ease;
+    will-change: transform;
+}
+
+/* This class will trigger the zoom */
+
+
+.headercontent img.zoom-effect {
+    transform: scale(1.2);
+}
+.upperheader p{
+    font-size:1.1rem;
+}
+.upperheader h1{
+    font-size:3rem;
+}
+
+.upperheader{
+    position: absolute;
+    bottom:20em;
+    left:4em;
+    color:white;
+}
+.downerheader{
+   
+    position:absolute;
+    bottom:6rem;
+    left:3em;
+    color:white;
+}
+.downer-inner{
+    display: flex;
+    gap:5em;
+    font-size:1.5rem;
+}
+
+
+.bar{
+    max-width: 0;
+    height: 5px;
+    background-color: red;
+    margin-bottom: 1em;
+    transition: max-width 2.5s ease;
+}
+
+
+.downerheader {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.downerheader::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 578px) {
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    nav{
+        height: 60px;
+    }
+    .headercontent{
+        height: 100vh;
+        width: 100%;
+    }
+
+    .downerheader{
+        bottom:1em;
+    }
+
+    .upperheader{
+        bottom:10em;
+    }
+    .text1 br{
+        display: none;
+    }
+    .text2 br{
+        display: none;
+    }
+    header nav ul{
+        display: none;
+    }
+    .downerheader{
+        left:1em;
+        width:100%;
+    }
+
+    /* the .downer-inner */
+    .downer-slider-container {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    /* The Train (your existing class) */
+    .downer-inner {
+        display: flex;
+        width: 200%; /* Enough room for 4 divs (2 per screen) */
+        transition: transform 0.8s ease-in-out; /* Smooth sliding */
+        gap: 0;
+    }
+
+    .downer-inner > div {
+        width: 50%; /* 50% of the 200% width = 1 full screen side-by-side */
+        padding: 0 15px;
+    }
+    .downerheader {
+        /* OVERRIDE the top-level 'none' */
+        scrollbar-width: auto !important; 
+        -ms-overflow-style: auto !important;
+        overflow-x: auto !important; 
+        width: 100%;
+    }
+    
+    /* 1. The Scrollbar Area */
+    .downerheader::-webkit-scrollbar {
+        display: none;
+        height: 6px; 
+    }
+
+    /* 2. The Draggable Handle (The part you actually SEE) */
+    .downerheader::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.6); /* White semi-transparent */
+        border-radius: 10px;
+    }
+
+    /* 3. The Track (The background of the bar) */
+    .downerheader::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* MENUS */
+
+.industries ,.consulting,.insights,.about{
+    width:90%;
+    display: none;
+    position:fixed;
+    top:80px;
+    background-color: white;
+    z-index: 10;;
+   left:0;
+   right:0;
+   margin:0 auto;
+   padding:0 1em;
+   padding-bottom:4em;
+   border-bottom-left-radius: 20px;
+   border-bottom-right-radius: 20px;
+   border-bottom:8px solid red;
+}
+.industries h3, .consulting h3,.insights h3,.about h3{
+    font-size:1.5rem;
+}
+.industries div,.consulting div,.insights div,.about div{
+    display: flex;
+    justify-content: space-between;
+    margin-top:1em;
+    
+    
+}
+.industries div ul ,.consulting div ul,.insights div ul,.about div ul{
+    list-style: none;
+    line-height: 1.6;
+    font-size:1.1rem;
+}
+
+nav ul li:hover{
+    cursor:pointer;
+}
+
+.searchbar{
+    width:fit-content;
+    height:80px;
+    font-size:1.3rem;
+    position:fixed;
+    top:0;
+    right:0;
+    z-index: 100;
+    background-color: white;;
+    display: flex;
+    align-items: center;
+    transform: translateX(100%);
+    transition:transform 0.8s ease;
+ }
+
+ .searchbar i:first-of-type{
+    margin-right:0.5em;
+ }
+
+.searchbar input{
+    border:none;
+    outline:none;
+    
+    width:70vw;
+    height:40px;
+}
+
+.bring{
+    transform:translate(0);
+    transition:0.8s ease;
+}
+
+.searchtwo{
+    color:red;
+}
+
+@media screen and (max-width:578px){
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    .searchbar{
+        width: 100%;
+    }
+    .searchbar input{
+        width:90vw;
+    }
+}
+
+.sidecontainer{
+    display: flex;
+    align-items: flex-start;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:101;
+    transform:translatex(-100%)
+}
+.sidebar{
+    height: 100vh;
+   
+    width:25vw;
+    background-color: white;
+    
+    padding:2em 3em;
+    
+}
+
+.sidebar h2{
+    color:red;
+    margin-bottom:2em;
+}
+
+.sidebar ul{
+    list-style:none;
+    line-height: 2;
+}
+
+.sidebar ul i{
+    color:red;
+}
+.sidebar ul:first-of-type{
+    padding-bottom: 4em;;
+}
+
+.closetwo{
+    font-size:2rem;
+    padding:0.2em;
+    background-color: red;
+    color:white;
+}
+
+@media screen and (max-width:578px){
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    .sidebar{
+        width:80vw;
+    }
+
+}
+
+.upper-content{
+    display: flex;
+    gap:1em;
+    padding:0 3em;
+    margin-top:3em;
+    position: relative;
+    width: 100%;
+}
+
+.right-content h1{
+    font-size:2rem;
+}
+
+.right-content p{
+    font-size:1.2rem;
+}
+.btns{
+    margin-top:1em;
+}
+
+.btns button {
+    font-size:1.3rem;
+    margin-right: 0.4em;
+    margin-bottom: 0.4em;
+    padding:0.2em 0.5em;
+    border-radius: 1rem;
+    border:1px solid rgba(204, 204, 204,0.4);
+    background-color: white;
+    color:rgb(196, 6, 6);
+}
+.btns button:hover{
+    background-color: rgb(196, 6, 6);
+    color: white;
+    transition: background-color 0.4s ease;
+}
+.cover{
+    display: none;
+    grid-template-columns: repeat(3,1fr);
+    gap:2em;
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    background-color: white;
+    padding:2em;
+    
+}
+.cover p{
+    border-bottom: 1px solid grey;
+    color:red;
+}
+.closethree{
+    position: absolute;
+    top:0;
+    right: 2em;
+    font-size:1.5rem;
+}
+
+@media (max-width: 578px) {
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    .upper-content {
+        display: grid;
+        grid-template-columns: 1fr; 
+        padding:0;
+        width:100%;
+    }
+
+    .right-content {
+        display: contents; 
+    }
+
+    .questions {
+        grid-row: 1; 
+    }
+
+    .left-image {
+        grid-row: 2; 
+    }
+    .left-image img{
+        width:100%;
+    }
+
+    .btns {
+        grid-row: 3; 
+    }
+    .btns button{
+        font-size:0.95rem;
+    }
+}
+@media (max-width: 384px) {
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    .upper-content {
+        display: grid;
+        grid-template-columns: 1fr; 
+        padding:0;
+        width:100%;
+    }
+    .left-image img{
+        width:100%;
+    }
+    .right-content h1{
+        width:100%
+    }
+    .right-content p{
+        width:100%;
+    }
+
+    .right-content {
+        display: contents; 
+    }
+
+    .questions {
+        grid-row: 1; 
+    }
+
+    .left-image {
+        grid-row: 2; 
+    }
+    .left-image img{
+        width:100%;
+    }
+
+    .btns {
+        grid-row: 3; 
+    }
+    .btns button{
+        font-size:0.95rem;
+    }
+}
+
+section{
+    margin-top:3em;
+}
+.swiper-slide{
+    display: flex;
+    padding:0 2em;
+    gap:1em;
+}
+.right-image img{
+    width:100%;
+}
+.left-content{
+    flex:1.2;
+}
+.right-image{
+    flex:1;
+}
+.left-content h1{
+    font-size:3.5rem;
+}
+.text-content{
+    font-size:3rem;
+}
+.left-content h4{
+    font-size:1.4rem;
+    padding:0.6em 0;
+    border-bottom: 1px solid grey;
+    width:80%;
+}
+
+.impact{
+    font-size:1.2rem;
+}
+
+.labels {
+    display: flex;
+    gap:1em;
+    width:60%;
+    margin-top:1em;
+}
+.labels div{
+    background-color: #ECECEC;
+    width:45%;
+    padding:0.5em;
+}
+/* Position pagination at the bottom left to align with your text */
+.swiper-pagination {
+    text-align: left !important;
+    padding-left: 5% !important;
+    bottom: 30px !important;
+}
+
+/* Change dot color to match your design */
+.swiper-pagination-bullet {
+    background: #888 !important; /* Inactive color */
+    opacity: 1;
+    width: 10px;
+    height: 2px;
+    border-radius: none;
+}
+
+/* Active dot color */
+.swiper-pagination-bullet-active {
+    background: #000 !important; /* Or your accent color */
+    width: 25px; /* Makes the active dot a long "pill" shape */
+    border-radius: 5px;
+}
+
+@media (max-width: 578px) {
+    /* Hide the image container entirely */
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    .right-image {
+        display: none;
+    }
+
+    /* Adjust the slide padding for mobile */
+    .swiper-slide {
+        padding: 2em 1.5em;
+        flex-direction: column;
+        text-align: left; /* Keep text left-aligned or change to center */
+    }
+
+    /* Make the text content fill the width since image is gone */
+    .left-content {
+        flex: 1;
+        width: 100%;
+    }
+
+    /* Shrink the large headings so they don't break lines awkwardly */
+    .left-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .text-content {
+        font-size: 1.8rem;
+    }
+
+    /* Adjust the impact boxes to stack or fit side-by-side */
+    .labels {
+        width: 100%;
+        flex-direction: row; /* Keep them side-by-side */
+        gap: 0.5em;
+    }
+
+    .labels div {
+        width: 50%; /* Each takes half the screen */
+        padding: 0.8em;
+    }
+
+    /* Move pagination dots so they don't cover the labels */
+    .swiper-pagination {
+        bottom: 10px !important;
+    }
+}
+
+.secbtn{
+   
+    display: block;
+    margin:2em auto;
+    padding:1em;
+    font-size:1rem;
+    color:red;
+    background-color: white;
+    border:1px solid rgb(184, 181, 181);
+}
+
+.secbtn:hover{
+    background-color: #9D1B22;
+    color: white;
+    border:none;
+}
+
+.video{
+    position: relative;
+}
+.videotext{
+    position:absolute;
+    bottom:2em;
+    left:3em;
+    color:white;
+}
+
+.videotext p{
+    font-size:1.4rem;
+}
+.videotext h1{
+    font-size:3.5rem;
+}
+
+.videotext button{
+    background-color: transparent;
+    padding:1.5em;
+    border:1px solid white;
+    color:white;
+}
+.videotext button:hover{
+    background-color: #9D1B22;
+    border:none;
+}
+
+    @media (max-width:384px){
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        .videotext{
+            left:0.5em;
+        }
+        .videotext p{
+            width:100%;
+            font-size:1.3rem;
+        }
+        .videotext h1{
+            font-size:1.6rem;
+            width:100%;
+        }
+        .videotext button{
+            font-size:0.7rem;
+            padding:0.8;
+
+        }
+    }
+
+.head{
+    margin:2em 0;
+    text-align: center;
+}
+
+.head::after{
+    content:"";
+    display: inline-block;
+    width:40%;
+    height:1px;
+    background-color:grey;
+    margin-left:5px;;
+    vertical-align: middle;
+}
+.head::before{
+    content:"";
+    display: inline-block;
+    width:40%;
+    height:1px;
+    background-color:grey;
+    margin-left:5px;;
+    vertical-align: middle;
+}
+
+@media (max-width:578px){
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    .head::after{
+        width:10%
+    }
+    .head::before{
+        width:10%
+    }
+    .video{
+        width:100%;
+    }
+}
+
+.news{
+    display: flex;
+}
+
+.right-news,.left-news{
+    flex:1;
+}
+
+.right-news img,.left-news img{
+    width:100%;
+}
+
+.right-news{
+    padding:0 2em;
+   
+}
+.left-news{
+    padding:0 2em;
+    border-right: 1px solid rgb(190, 189, 189);
+}
+
+.left-news p:first-of-type,.right-news p:first-of-type{
+    color:red;
+    margin-bottom: 0.5em;;
+}
+.left-news h3,.right-news h3{
+    color:red;
+    margin-bottom:0.5em;
+}
+.left-news p:nth-of-type(2),.right-news p:nth-last-of-type(2){
+    margin-bottom: 2em;
+}
+
+@media (max-width:578px){
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    .news{
+        flex-direction: column;
+        width:100%;
+    }
+    .right-news,.left-news{
+        display: flex;
+        align-items: center;
+        height:200px;
+        border-bottom: 1px solid grey;
+        padding-bottom: 1em;;
+        padding-top:1em;
+        padding-left: 0;
+        margin-left:1em;
+        margin-right: 1em;;
+        border-right: none;
+    }
+    .right-news div:first-child,.left-news div:first-child{
+        flex:1
+    }
+    .right-news div:nth-child(2),.left-news div:nth-child(2){
+        flex:3
+    }
+    .left-news p:nth-of-type(2),.right-news p:nth-last-of-type(2){
+        display: none;
+    }
+
+    .right-news img,.left-news img{
+        height:6em;
+        object-fit: cover;
+        padding-right:0.5em;
+    }
+}
+
+.reds{
+    display: flex;
+    height: 50vh;
+    background-color: red;
+    color:white;
+    padding: 2em 0;
+}
+.reds div{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reds div:first-child{
+    border-right: 1px solid black;
+}
+
+.reds div button{
+    background-color: transparent;
+    padding:1em;
+    color:white;
+    border:1px solid white;
+}
+
+.reds div button:hover{
+    background-color: #723232;
+    border:none;
+}
+
+@media (max-width:578px){
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    .reds{
+        flex-direction: column;
+        padding: 0;
+        height:70vh;
+    }
+    .reds div:first-child{
+        border-bottom: 1px solid black;
+    }
+    .reds button{
+        width:80%;
+    }
+}
+
+footer{
+    padding:3em;
+    background-color: black;
+    color:white;
+}
+
+.upperfoot{
+    display: flex;
+}
+.upperfoot p{
+    flex:1.3;
+    font-size:1.5rem;
+}
+.upperfoot div{
+    flex:1;
+}
+
+.upperfoot form input{
+    height:3em;
+    max-width: 100%;
+    background-color: grey;
+  
+}
+.upperfoot form input::placeholder {
+    color: white;       /* change this to whatever color you want */
+    opacity: 1;      
+    padding-left:0.5em;  /* some browsers make it semi-transparent by default */
+}
+
+.upperfoot form button{
+    height:3em;
+    padding:0.5em 1em;
+    background-color: red;
+    color:white;
+    border: none;
+    
+}
+
+.upperfoot button:hover{
+    background-color: #723232;
+}
+
+input[type="checkbox"] {
+    transform: scale(2); /* 2× bigger */
+    transform-origin: top left; /* optional alignment */
+}
+
+.upperfoot span{
+    font-size:1.3rem;
+}
+
+.check{
+    margin-top:0.5em;
+    display: flex;
+    gap:1em;
+    align-items: flex-start;
+}
+
+.midfoot{
+    margin-top:4em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.midfoot p{
+    color:white;
+    font-size:1.5rem;
+}
+
+.midfoot p i{
+    font-size:1.5rem;
+    margin-right: 0.5em;;
+}
+
+footer ul{
+    display: flex;
+    list-style-type: none;
+    gap:2em;
+    margin-top:3em;
+    font-size:1.3rem;
+    margin-bottom:1em;
+}
+
+.midfoot p i:hover{
+     color:blue;
+}
+
+
+@media (max-width:578px){
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    .taker{
+        display: contents;
+    }
+    form{
+        display: contents;
+    }
+    .upperfoot{
+        display: flex;
+        flex-direction:column;
+        width: 100%;
+    }
+
+    .upperfoot p{
+        order:0;
+    }
+    .upperfoot form input{
+        order:2;
+        width:100%;;
+        display: block;
+    }
+   
+    .upperfoot .check{
+        order:3;
+    }
+    .btn1{
+        order:4;
+        margin-top:1em;
+    }
+    .upperfoot span{
+        font-size:1.1rem;
+    }
+    .midfoot{
+        flex-direction: column;
+        gap:1em;
+    }
+    footer ul{
+        flex-direction: column;
+        gap:0.3em;
+    }
+    
+}
+
+@media (max-width:384px){
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    .upperheader,
+    .downerheader{
+        left:1em;
+        right:1em;
+        width:auto;
+    }
+}
