@@ -114,8 +114,9 @@ header nav ul li{
     *, *::before, *::after {
         box-sizing: border-box;
     }
-    nav{
+    headeer nav{
         height: 60px;
+        padding:0 0.5em;
     }
     .headercontent{
         height: 100vh;
@@ -946,4 +947,5 @@ footer ul{
         right:1em;
         width:auto;
     }
+
 }
