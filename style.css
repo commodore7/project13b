@@ -114,7 +114,7 @@ header nav ul li{
     *, *::before, *::after {
         box-sizing: border-box;
     }
-    headeer nav{
+    header nav{
         height: 60px;
         padding:0 0.5em;
     }
@@ -949,3 +949,4 @@ footer ul{
     }
 
 }
+
