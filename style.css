@@ -650,25 +650,27 @@ section{
 .head{
     margin:2em 0;
     text-align: center;
+    display:flex;
+    align-items:center;
 }
 
 .head::after{
     content:"";
     display: inline-block;
-    width:40%;
+    flex:1;
     height:1px;
     background-color:grey;
     margin-left:5px;;
-    vertical-align: middle;
+   
 }
 .head::before{
     content:"";
     display: inline-block;
-    width:40%;
+   flex:1;
     height:1px;
     background-color:grey;
     margin-left:5px;;
-    vertical-align: middle;
+    
 }
 
 @media (max-width:578px){
@@ -950,5 +952,6 @@ footer ul{
     }
 
 }
+
 
 
